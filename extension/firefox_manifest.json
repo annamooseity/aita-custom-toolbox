@@ -1,0 +1,44 @@
+{
+  "name": "AITA Custom Toolbox",
+  "description": "Extra special tools for extra special mods",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "tabs",
+    "cookies",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://*.reddit.com/",
+    "https://old.reddit.com/",
+    "https://oauth.reddit.com/",
+    "https://mod.reddit.com/"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "all_frames": true,
+      "matches": [
+      "https://*.reddit.com/*"
+      ],
+      "exclude_matches": [
+        "https://*.reddit.com/framedGild/*",
+        "https://*.reddit.com/framedModal/*",
+        "https://*.reddit.com/chat/*",
+        "https://*.reddit.com/account/sso/*",
+        "https://ads.reddit.com/*",
+        "https://*.reddit.com/*.json",
+        "https://*.reddit.com/*.json?*",
+        "https://*.reddit.com/*.json-html",
+        "https://*.reddit.com/*.json-html?*"
+      ],
+      "css": [],
+      "js": [
+        "data/init.js"
+      ]
+
+    }
+  ]
+
+}

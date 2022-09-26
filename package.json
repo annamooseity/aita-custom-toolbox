@@ -1,0 +1,25 @@
+{
+    "name": "AITA Custom Toolbox",
+    "description": "Extra special tools for extra special mods",
+    "private": true,
+    "scripts": {
+        "build": "del-cli build && rollup -c rollup.config.js",
+        "build:watch": "rollup -c rollup.config.js --watch"
+    },
+    "homepage": "http://www.reddit.com/r/toolbox",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "jquery": "^3.6.1",
+        "tinycolor2": "^1.4.2",
+        "webextension-polyfill": "^0.10.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^22.0.2",
+        "@rollup/plugin-node-resolve": "^14.1.0",
+        "cross-env": "^7.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "rollup": "^2.79.0",
+        "rollup-plugin-copy": "^3.4.0",
+        "del-cli": "^5.0.0"
+    }
+}
