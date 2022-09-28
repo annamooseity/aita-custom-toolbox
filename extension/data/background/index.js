@@ -1,4 +1,7 @@
-import './handlers/reload.js';
-import './handlers/url-changed.js';
-import './handlers/webrequest.js';
+import browser from 'webextension-polyfill';
 
+export function handleMessage (request, sender) {
+    return Promise.response(makeRequest(request, sender));
+}
+
+browser.runtime.onMessage.addListener(handleMessage);

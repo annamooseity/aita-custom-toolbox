@@ -1,7 +1,5 @@
 import browser from 'webextension-polyfill';
 
-import {messageHandlers} from '../messageHandling';
-
 /**
  * Retrieves the user's OAuth tokens from cookies.
  * @param {number} [tries=1] Number of tries to get the token (recursive)
@@ -205,20 +203,3 @@ export async function makeRequest ({
     // Otherwise return the raw response
     return response;
 }
-
-// Makes a request and sends a reply with response and error properties
-messageHandlers.set('ah-request', requestOptions => makeRequest(requestOptions).then(
-    // For succeeded requests, we send only the raw `response`
-    async response => ({
-        response: await serializeResponse(response),
-    }),
-    // For failed requests, we send:
-    // - `error: true` to indicate the failure
-    // - `message` containing information about the error
-    // - `response` containing the raw response data (if applicable)
-    async error => ({
-        error: true,
-        message: error.message,
-        response: error.response ? await serializeResponse(error.response) : undefined,
-    }),
-));
