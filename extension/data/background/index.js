@@ -1,6 +1,6 @@
 import browser from 'webextension-polyfill';
 
-export function handleMessage (request, sender) {
+function handleMessage (request, sender) {
     return Promise.response(makeRequest(request, sender));
 }
 
